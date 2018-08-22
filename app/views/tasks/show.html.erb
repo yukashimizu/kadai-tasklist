@@ -1,8 +1,9 @@
 <h1>id : <%= @task.id %> 詳細</h1>
 
-<p>
-  <%= @task.content %>
-</p>
+<div>
+  <p>タスク：<%= @task.content %></p>
+  <p>ステータス：<%= @task.status %></p>
+</div>
 
 <%= link_to("編集", edit_task_url) %>
 <%= link_to("削除", @message, method: :delete, data: {confirm: "本当に削除してよろしいですか？"}) %>
