@@ -1,0 +1,9 @@
+<h1>id : <%= @task.id %> 編集ページ</h1>
+
+<%= form_for(@task) do |form| %>
+  <%= form.label :content, "タスク" %>
+  <%= form.text_field :content %>
+  <%= form.submit "投稿" %>
+<% end %>
+
+<%= link_to("一覧に戻る", tasks_path) %>

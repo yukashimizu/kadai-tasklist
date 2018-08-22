@@ -1,0 +1,8 @@
+<h1>Task list</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li><%= link_to(task.id, task) %> : <%= task.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to("新規作成", new_task_url) %>
