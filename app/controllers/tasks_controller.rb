@@ -38,8 +38,18 @@ class TasksController < ApplicationController
       render :edit
     end
   end
-end
-
-def task_params
-  params.require(:task).permit(:content)
+  
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    
+    flash[:success] = "タスクを削除しました"
+    redirect_to tasks_url
+  end
+  
+  private
+  
+  def task_params
+    params.require(:task).permit(:content)
+  end
 end
