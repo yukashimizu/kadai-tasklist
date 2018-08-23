@@ -4,7 +4,7 @@
     
       <% if task.errors.any? %>
         <ul>
-          <%= task.errors.full_messages.each do |message| %>
+          <% task.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
@@ -12,11 +12,11 @@
       
       <div class="form-group">
         <%= form.label :content, "タスク" %>
-        <%= form.text_field :content %>
+        <%= form.text_field :content, class: "form-control" %>
       </div>
-      <div class="from-group">
+      <div class="form-group">
         <%= form.label :status, "ステータス" %>
-        <%= form.text_field :status %>
+        <%= form.text_field :status, class: "form-control" %>
       </div>
         <%= form.submit "投稿", class: "btn btn-primary" %>
     <% end %>
