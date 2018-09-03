@@ -1,8 +1,13 @@
-<h1>Task list</h1>
-<ul>
-  <% @tasks.each do |task| %>
-    <li><%= link_to(task.id, task) %> : <%= task.content %>(ステータス：<%= task.status %>)</li>
-  <% end %>
-</ul>
-
-<%= link_to("新規作成", new_task_url) %>
+<% if logged_in? %>
+  <h1>Task list</h1>
+  <p>ログイン中のユーザー：<%= current_user.name %></p>
+  <ul>
+    <% @tasks.each do |task| %>
+      <li><%= link_to(task.id, task) %> : <%= task.content %>(ステータス：<%= task.status %>、ユーザーID：<%= task.user_id %>)</li>
+    <% end %>
+  </ul>
+  <%= link_to("新規作成", new_task_url) %>
+<% else %>
+  <h1>Task list</h1>
+  <%= link_to 'Sign Up', signup_path, class: 'btn btn-lg btn-primary' %>
+<% end %>
